@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# this python code is base python 2, not python 3
 # -*- coding: utf-8 -*-
 import RPi.GPIO as GPIO
 import time
