@@ -7,13 +7,13 @@
     echo '#!/bin/bash
 
 # Prevent killing the Pi if the X735 is not installed:
-installed=$(lsusb | grep "0862 ASMedia")
+#installed=$(lsusb | grep "0862 ASMedia")
 
-if [ -z "$installed" ]
-then
-  echo "X735 not detected, aborting"
-  exit 0
-fi
+#if [ -z "$installed" ]
+#then
+#  echo "X735 not detected, aborting"
+#  exit 0
+#fi
 
 SHUTDOWN=5
 REBOOTPULSEMINIMUM=200
