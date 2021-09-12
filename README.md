@@ -2,7 +2,7 @@
 
 ## Installation
 This scripts are tested on RaspiaOS 64 bits upgraded to Debian Bullseye.
-You should use the next guide (based on the official website https://wiki.geekworm.com/X735_V2.5_Software).
+You should use the next guide (based on the [official website of the GeekWorm X735](https://wiki.geekworm.com/X735_V2.5_Software).
 This packages are upgrade to use Python3 (Python2 is deprecated):
 
     sudo apt install python3 python3-smbus python3-pigpio
