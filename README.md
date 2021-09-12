@@ -1,4 +1,4 @@
-# x735-v2.5 for Debian Bullseye / Debian 11
+# x735-v2.5 for Python3 + Debian Bullseye / Debian 11
 
 ## Installation
 This scripts are tested on RaspiaOS 64 bits upgraded to Debian Bullseye.
