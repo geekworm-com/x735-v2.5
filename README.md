@@ -14,6 +14,13 @@ This packages are upgrade to use Python3 (Python2 is deprecated):
     sudo bash install.sh
     sudo reboot
 
+## Installation of service:
+The shell script "install_service.sh" will create a new service in the folder /etc/systemd/system/ with the name x735fan.service.
+Will enable and activate it and check that it is running. In that case will remove from .bashrch the execution of the .py file.
+The only need to do it it's execute the script:
+
+    bash install_service.sh
+
 ## Usage
 For activate the fan manually you can do with the next command, also, this command is added (in background) in the .bashrc of the profile of the user:
 
