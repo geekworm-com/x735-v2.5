@@ -70,17 +70,14 @@ echo "0" > /sys/class/gpio/gpio$BUTTON/value
 ' > /usr/local/bin/x735softsd.sh
 
 sudo chmod +x /usr/local/bin/x735softsd.sh
-sudo systemctl enable pigpiod
 
 USER_RUN_FILE=/home/admin/.bashrc
 CUR_DIR=$(pwd)
 sudo echo "alias x735off='sudo x735softsd.sh'" >> ${USER_RUN_FILE}
-#sudo echo "python ${CUR_DIR}/pwm_fan_control.py&"  >> ${USER_RUN_FILE}
+#sudo echo "python3 ${CUR_DIR}/pwm_fan_control.py&"  >> ${USER_RUN_FILE}
 
-sudo sed -i "$ i sudo pigpiod" /etc/rc.local
-sudo sed -i "$ i python ${CUR_DIR}/pwm_fan_control.py&" /etc/rc.local
+sudo sed -i "$ i python3 ${CUR_DIR}/pwm_fan_control.py&" /etc/rc.local
 
-sudo pigpiod
 python ${CUR_DIR}/pwm_fan_control.py &
 
 echo "The installation is complete."
