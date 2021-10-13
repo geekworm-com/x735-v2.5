@@ -69,15 +69,13 @@ echo "X735 Shutting down..."
 echo "0" > /sys/class/gpio/gpio$BUTTON/value
 ' > /usr/local/bin/x735softsd.sh
 sudo chmod +x /usr/local/bin/x735softsd.sh
-sudo systemctl enable pigpiod
 
 USER_RUN_FILE=/home/pi/.bashrc
 CUR_DIR=$(pwd)
 sudo echo "alias x735off='sudo x735softsd.sh'" >> ${USER_RUN_FILE}
-sudo echo "python ${CUR_DIR}/pwm_fan_control.py&"  >> ${USER_RUN_FILE}
+sudo echo "python3 ${CUR_DIR}/pwm_fan_control.py&"  >> ${USER_RUN_FILE}
 
-sudo pigpiod
-python ${CUR_DIR}/pwm_fan_control.py &
+python3 ${CUR_DIR}/pwm_fan_control.py &
 
 echo "The installation is complete."
 echo "Please run 'sudo reboot' to reboot the device."
