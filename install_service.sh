@@ -6,6 +6,7 @@
 # This avoid the issue that if you logon several times ir runned several times.
 
 # Create the service
+CUR_DIR=$(pwd)
 echo "Creating the service in /etc/systemd/system/ with name x735fan.service"
 sudo cat > /etc/systemd/system/x735fan.service <<EOF
 [Unit]
@@ -15,7 +16,7 @@ After=multi-user.target
 [Service]
 Type=simple
 Restart=always
-ExecStart=/usr/bin/python3 $HOME/x735-v2.5/pwm_fan_control.py
+ExecStart=/usr/bin/python3 ${CUR_DIR}/pwm_fan_control.py
 
 [Install]
 WantedBy=multi-user.target
