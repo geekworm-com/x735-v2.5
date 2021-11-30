@@ -72,7 +72,7 @@ sudo chmod +x /usr/local/bin/x735softsd.sh
 sudo systemctl enable pigpiod
 
 CUR_DIR=$(pwd)
-sudo echo "alias x735off='sudo x735softsd.sh'" >> /home/pi/.bashrc
+#sudo echo "alias x735off='sudo x735softsd.sh'" >> /home/pi/.bashrc
 #sudo echo "python ${CUR_DIR}/pwm_fan_control.py&"  >> ${USER_RUN_FILE}
 sudo sed -i "$ i python ${CUR_DIR}/pwm_fan_control.py&" /etc/rc.local
 
