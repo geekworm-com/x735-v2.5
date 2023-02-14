@@ -73,7 +73,7 @@ sudo chmod +x /usr/local/bin/x735softsd.sh
 CUR_DIR=$(pwd)
 sudo sed -i "$ i python3 ${CUR_DIR}/x735fan.py&" /etc/rc.local
 
-python ${CUR_DIR}/x735fan.py &
+python3 ${CUR_DIR}/x735fan.py &
 
 echo "The installation is complete."
 echo "Please run 'sudo reboot' to reboot the device."
