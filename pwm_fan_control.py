@@ -13,7 +13,7 @@ fan.start(0)
 
 def get_temp():
     output = subprocess.run(['vcgencmd', 'measure_temp'], capture_output=True)
-    temp_str = output.stdout.decode()
+    temp_str = output.stdout.decode().strip()
     try:
         return float(temp_str.split('=')[1].split('\'')[0])
     except (IndexError, ValueError):
