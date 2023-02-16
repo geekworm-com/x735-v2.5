@@ -4,11 +4,14 @@ import RPi.GPIO as IO
 import time
 import subprocess
 
-servo = 13
+# constants
+SERVO_PIN = 13
+FAN_FREQ = 25000                             # Use a constant for the fan PWM frequency
+
 IO.setwarnings(False)
 IO.setmode (IO.BCM)
-IO.setup(servo,IO.OUT)
-fan = IO.PWM(servo,25000)
+IO.setup(SERVO_PIN, IO.OUT)
+fan = IO.PWM(SERVO_PIN, FAN_FREQ)
 fan.start(0)
 
 def get_temp():
@@ -19,7 +22,7 @@ def get_temp():
     except (IndexError, ValueError):
         raise RuntimeError('Could not get temperature')
 
-while 1:
+while True:                                  # Use True instead of 1 for clarity
     temp = get_temp()                        # Get the current CPU temperature
     if temp > 70:                            # Check temperature threshhold, in degrees celcius
         fan.ChangeDutyCycle(100)             # Set fan duty based on temperature, 100 is max speed and 0 is min speed or off.
