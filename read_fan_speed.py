@@ -33,7 +33,7 @@ try:
         # print "%.f RPM" % rpm
         print("%.f RPM" % rpm)
         rpm = 0
-        time.sleep(1)
+        time.sleep(WAIT_TIME)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
