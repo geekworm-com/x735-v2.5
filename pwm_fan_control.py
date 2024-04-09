@@ -11,15 +11,13 @@ IO.setup(servo,IO.OUT)
 fan = IO.PWM(servo,200)
 fan.start(0)
 
-def get_temp():
-    output = subprocess.run(['vcgencmd', 'measure_temp'], capture_output=True)
-    temp_str = output.stdout.decode()
-    try:
-        return float(temp_str.split('=')[1].split('\'')[0])
-    except (IndexError, ValueError):
-        raise RuntimeError('Could not get temperature')
 while 1:
-    temp = get_temp()                        # Get the current CPU temperature
+    #get CPU temp
+    file = open("/sys/class/thermal/thermal_zone0/temp")
+    temp = float(file.read()) / 1000.00
+    temp = float('%.2f' % temp)
+    file.close()
+    # temp = get_temp()                      # Get the current CPU temperature
     if temp > 70:                            # Check temperature threshhold, in degrees celcius
         fan.ChangeDutyCycle(100)             # Set fan duty based on temperature, 100 is max speed and 0 is min speed or off.
     elif temp > 60:
