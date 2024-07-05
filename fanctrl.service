@@ -1,0 +1,14 @@
+[Unit]
+Description=X735 PWM Fan Control
+After=network.target
+
+[Service]
+User=root
+Restart=always
+WorkingDirectory=/opt/x735
+ExecStart=/usr/bin/python3 /opt/x735/pwm_fan_control.py
+StandardOutput=append:/var/log/x735-fanctrl.log
+StandardError=append:/var/log/x735-fanctrl.log
+
+[Install]
+WantedBy=multi-user.target
